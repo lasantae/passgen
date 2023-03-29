@@ -28,6 +28,7 @@ public class PassgenPanel {
 
 	private String panelIdentifierInUse; 
 	private JButton btnGeneratePassword;
+	private JLabel lblPassword;
 	/**
 	 * Launch the application.
 	 */
@@ -58,7 +59,7 @@ public class PassgenPanel {
 		gbl_pnlNorth.rowWeights = new double[]{0.0, Double.MIN_VALUE};
 		pnlNorth.setLayout(gbl_pnlNorth);
 		
-		JLabel lblPassword = new JLabel("");
+		lblPassword = new JLabel("");
 		GridBagConstraints gbc_lblPassword = new GridBagConstraints();
 		gbc_lblPassword.insets = new Insets(0, 0, 0, 5);
 		gbc_lblPassword.gridx = 0;
@@ -177,4 +178,11 @@ public class PassgenPanel {
 		btnGeneratePassword.addActionListener(l);
 	}
 	
+	public JLabel getLblPassword() {
+		return lblPassword;
+	}
+	
+	public void setLblPassword(String p) {
+		this.lblPassword.setText(p);
+	}
 }

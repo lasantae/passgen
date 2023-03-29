@@ -9,9 +9,11 @@ import java.io.File;
 import javax.swing.JPanel;
 
 import com.lasantae.gui.views.PassgenPanel;
+import com.lasantae.gui.views.PassphraseOptionsPanel;
 
 import password.generator.data.Wordlist;
 import password.generator.generators.PassphraseGenerator;
+import password.generator.generators.PassphraseGenerator.Cases;
 import password.generator.generators.PasswordGenerator;
 
 public class PassgenController {
@@ -63,6 +65,16 @@ public class PassgenController {
 				
 				switch (PANEL_IDENTIFIER_IN_USE) {
 					case "pnlPassphraseOptions" -> {
+						PassphraseOptionsPanel panel = view.getPnlPassphraseOptions();
+						int words = (int) panel.getSpinnerWordAmount().getValue(); 
+						String delimiter = panel.getTextFieldDelimiter().getText();
+					
+						PassphraseGenerator.Cases c = Cases.TITLE_CASE;	
+						if (panel.getRdbtnLowercase().isSelected()) c = Cases.LOWERCASE;
+						else if (panel.getRdbtnUppercase().isSelected()) c = Cases.UPPERCASE;
+						
+						String passphrase = PassphraseGenerator.getPassphrase(WORDLIST, words, delimiter, c);
+						view.setLblPassword(passphrase);
 						
 					}
 					case "pnlPasswordOptions" -> {
