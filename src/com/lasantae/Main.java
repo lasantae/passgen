@@ -1,6 +1,6 @@
 package com.lasantae;
 
-import com.lasantae.views.TUI;
+import com.lasantae.views.tui.PassgenTUI;
 
 public class Main {
     public static void main(String[] args) {
@@ -9,7 +9,7 @@ public class Main {
          */
 
         if (args.length > 0) {
-            TUI.launch(args);
+            PassgenTUI.launch(args);
             return;
         }
 

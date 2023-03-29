@@ -1,4 +1,4 @@
-package com.lasantae.views;
+package com.lasantae.views.tui;
 
 import password.generator.data.Wordlist;
 import password.generator.generators.PassphraseGenerator;
@@ -6,7 +6,7 @@ import password.generator.generators.PasswordGenerator;
 
 import java.io.File;
 
-public class TUI {
+public class PassgenTUI {
     public static void launch(String[] args) {
         /*
          * USAGE: java -jar passgen.jar (passphrase or password)
