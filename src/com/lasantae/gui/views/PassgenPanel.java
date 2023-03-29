@@ -43,7 +43,7 @@ public class PassgenPanel {
 		frmPassgen.setBackground(SystemColor.menu);
 		frmPassgen.setTitle("passgen");
 		frmPassgen.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frmPassgen.setBounds(100, 100, 450, 300);
+		frmPassgen.setSize(350, 250);
 		contentPane = new JPanel();
 		contentPane.setBackground(UIManager.getColor("Button.background"));
 		contentPane.setBorder(null);
