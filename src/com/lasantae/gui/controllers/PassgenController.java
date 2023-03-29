@@ -2,11 +2,15 @@ package com.lasantae.gui.controllers;
 
 import java.awt.CardLayout;
 import java.awt.EventQueue;
+import java.awt.Toolkit;
+import java.awt.datatransfer.Clipboard;
+import java.awt.datatransfer.StringSelection;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
 import javax.swing.JPanel;
+import javax.swing.UIManager;
 
 import com.lasantae.gui.views.PassgenPanel;
 import com.lasantae.gui.views.PassphraseOptionsPanel;
@@ -31,6 +35,17 @@ public class PassgenController {
 		this.view = view;
 		this.passphraseGenerator = new PassphraseGenerator();
 		this.passwordGenerator = new PasswordGenerator();
+		
+		view.addCopyButtonListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String password = view.getLblPassword().getText();
+				
+				Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
+				clipboard.setContents(new StringSelection(password), null);
+			}
+		});
 		
 		view.addPassphrasePanelListener(new ActionListener() {
 			

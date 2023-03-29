@@ -29,6 +29,7 @@ public class PassgenPanel {
 	private String panelIdentifierInUse; 
 	private JButton btnGeneratePassword;
 	private JLabel lblPassword;
+	private JButton btnCopyPassword;
 	/**
 	 * Launch the application.
 	 */
@@ -66,7 +67,7 @@ public class PassgenPanel {
 		gbc_lblPassword.gridy = 0;
 		pnlNorth.add(lblPassword, gbc_lblPassword);
 		
-		JButton btnCopyPassword = new JButton("Copy");
+		btnCopyPassword = new JButton("Copy");
 		GridBagConstraints gbc_btnCopyPassword = new GridBagConstraints();
 		gbc_btnCopyPassword.gridx = 1;
 		gbc_btnCopyPassword.gridy = 0;
@@ -165,7 +166,16 @@ public class PassgenPanel {
 		this.panelIdentifierInUse = panelIdentifierInUse;
 	}
 
-
+	
+	public JLabel getLblPassword() {
+		return lblPassword;
+	}
+	
+	public void setLblPassword(String p) {
+		this.lblPassword.setText(p);
+	}
+	
+	
 	public void addPassphrasePanelListener(ActionListener l) {
 		rdbtnPassphrase.addActionListener(l);
 	}
@@ -178,11 +188,8 @@ public class PassgenPanel {
 		btnGeneratePassword.addActionListener(l);
 	}
 	
-	public JLabel getLblPassword() {
-		return lblPassword;
+	public void addCopyButtonListener(ActionListener l) {
+		btnCopyPassword.addActionListener(l);
 	}
-	
-	public void setLblPassword(String p) {
-		this.lblPassword.setText(p);
-	}
+
 }
