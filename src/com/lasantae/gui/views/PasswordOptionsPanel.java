@@ -1,6 +1,5 @@
 package com.lasantae.gui.views;
 
-import java.awt.CheckboxGroup;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -12,6 +11,11 @@ import javax.swing.JSpinner;
 import javax.swing.SpinnerNumberModel;
 
 public class PasswordOptionsPanel extends JPanel {
+	private JCheckBox chckbxSymbols;
+	private JSpinner spinnerLength;
+	private JCheckBox chckbxLowercase;
+	private JCheckBox chckbxNumbers;
+	private JCheckBox chckbxUppercase;
 
 	/**
 	 * Create the panel.
@@ -31,7 +35,7 @@ public class PasswordOptionsPanel extends JPanel {
 		gbc_lblLength.gridy = 0;
 		add(lblLength, gbc_lblLength);
 		
-		JSpinner spinnerLength = new JSpinner();
+		spinnerLength = new JSpinner();
 		spinnerLength.setModel(new SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
 		GridBagConstraints gbc_spinnerLength = new GridBagConstraints();
 		gbc_spinnerLength.insets = new Insets(0, 0, 5, 0);
@@ -49,18 +53,33 @@ public class PasswordOptionsPanel extends JPanel {
 		gbc_pnlCheckboxes.gridy = 1;
 		add(pnlCheckboxes, gbc_pnlCheckboxes);
 		
-		JCheckBox chckbxUppercase = new JCheckBox("Uppercase");
+		chckbxUppercase = new JCheckBox("Uppercase");
 		pnlCheckboxes.add(chckbxUppercase);
 		
-		JCheckBox chckbxLowercase = new JCheckBox("Lowercase");
+		chckbxLowercase = new JCheckBox("Lowercase");
 		pnlCheckboxes.add(chckbxLowercase);
 		
-		JCheckBox chckbxSymbols = new JCheckBox("Symbols");
+		chckbxSymbols = new JCheckBox("Symbols");
 		pnlCheckboxes.add(chckbxSymbols);
 		
-		JCheckBox chckbxNumbers = new JCheckBox("Numbers");
+		chckbxNumbers = new JCheckBox("Numbers");
 		pnlCheckboxes.add(chckbxNumbers);
 
 	}
 
+	public JCheckBox getChckbxSymbols() {
+		return chckbxSymbols;
+	}
+	public JSpinner getSpinnerLength() {
+		return spinnerLength;
+	}
+	public JCheckBox getChckbxLowercase() {
+		return chckbxLowercase;
+	}
+	public JCheckBox getChckbxNumbers() {
+		return chckbxNumbers;
+	}
+	public JCheckBox getChckbxUppercase() {
+		return chckbxUppercase;
+	}
 }

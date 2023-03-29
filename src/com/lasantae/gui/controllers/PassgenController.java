@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 
 import com.lasantae.gui.views.PassgenPanel;
 import com.lasantae.gui.views.PassphraseOptionsPanel;
+import com.lasantae.gui.views.PasswordOptionsPanel;
 
 import password.generator.data.Wordlist;
 import password.generator.generators.PassphraseGenerator;
@@ -79,6 +80,16 @@ public class PassgenController {
 					}
 					case "pnlPasswordOptions" -> {
 					
+						PasswordOptionsPanel panel = view.getPnlPasswordOptions();
+						
+						int length = (int) panel.getSpinnerLength().getValue();
+						boolean includeUppercase = panel.getChckbxUppercase().isSelected();
+						boolean includeLowercase = panel.getChckbxLowercase().isSelected();
+						boolean includeSymbols = panel.getChckbxSymbols().isSelected();
+						boolean includeNumbers = panel.getChckbxNumbers().isSelected();
+						
+						String password = PasswordGenerator.getPassword(length, includeUppercase, includeLowercase, includeSymbols, includeNumbers);
+						view.setLblPassword(password);
 					}
 				}
 				
