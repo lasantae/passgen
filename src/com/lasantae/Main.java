@@ -1,5 +1,9 @@
 package com.lasantae;
 
+import javax.swing.JPanel;
+
+import com.lasantae.gui.controllers.PassgenController;
+import com.lasantae.gui.views.PassgenPanel;
 import com.lasantae.views.tui.PassgenTUI;
 
 public class Main {
@@ -13,6 +17,8 @@ public class Main {
             return;
         }
 
-
+        PassgenPanel view = new PassgenPanel();
+        PassgenController controller = new PassgenController(view);
+        controller.show();
     }
 }
