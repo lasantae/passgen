@@ -116,6 +116,7 @@ public class PassgenController {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
 					view.getFrmPassgen().setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
