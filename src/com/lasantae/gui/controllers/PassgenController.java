@@ -9,6 +9,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 
@@ -102,6 +103,12 @@ public class PassgenController {
 						boolean includeLowercase = panel.getChckbxLowercase().isSelected();
 						boolean includeSymbols = panel.getChckbxSymbols().isSelected();
 						boolean includeNumbers = panel.getChckbxNumbers().isSelected();
+						
+						// check if any of the checkboxes is selected before generating a password. 
+						if (!(includeUppercase || includeLowercase || includeSymbols || includeNumbers)) {
+							JOptionPane.showMessageDialog(view.getFrmPassgen(), "Please select one or more options.");
+							break;
+						}
 						
 						String password = PasswordGenerator.getPassword(length, includeUppercase, includeLowercase, includeSymbols, includeNumbers);
 						view.setLblPassword(password);
